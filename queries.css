@@ -1,0 +1,27 @@
+@media (max-width: 827px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 700px) {
+  .calculator__buttons {
+    width: 90vw;
+    min-width: 450px;
+  }
+}
+
+@media (max-width: 700px) {
+  .calculator__button {
+    width: 60px;
+    height: 60px;
+  }
+  .calculator__button--zero {
+    grid-column: span 2;
+    width: 100%;
+  }
+  .calculator__button--plus {
+    grid-row: span 2;
+    height: 100%;
+}
+}
