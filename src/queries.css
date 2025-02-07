@@ -29,6 +29,11 @@
     margin-top: 5px;
     align-self: flex-end;
   }
+  .calculator__button.pressed {
+    height: 55px;
+    margin-top: 5px;
+    align-self: flex-end;
+  }
   .calculator__button--plus:hover {
     height: calc(100% - 5px);
     margin-top: 5px;

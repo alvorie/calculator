@@ -7,6 +7,7 @@ export const keyMap = {
   "(": "(",
   ")": ")",
   "=": "=",
+  ".": ".",
   Enter: "=",
   Backspace: "Backspace",
   Delete: "C",

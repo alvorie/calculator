@@ -1,4 +1,7 @@
 import { keyMap } from "./keyMap.js";
+import { validateAndProcessExpression } from "./RPN.js";
+
+const digits = "1234567890".split("");
 
 document.addEventListener("DOMContentLoaded", () => {
   const screen = document.querySelector(".calculator__screen");
@@ -12,21 +15,20 @@ document.addEventListener("DOMContentLoaded", () => {
     if (value === "C") {
       expression = "";
     } else if (value === "=") {
-      // polish notation :)..
-      try {
-        expression = eval(expression).toString();
-      } catch (error) {
-        expression = "Error";
+      if (expression != "") {
+        expression = validateAndProcessExpression(expression).toString();
       }
     } else if (value === "Backspace") {
       expression = expression.slice(0, -1);
     } else if (["+", "-", "*", "/", "^"].includes(value)) {
-      // replace the last character if it is an operator
-      const lastChar = expression[expression.length - 1];
-      if (["+", "-", "*", "/", "^"].includes(lastChar)) {
-        expression = expression.slice(0, -1) + value;
+      if (
+        expression.length > 2 &&
+        ["+", "-", "*", "/", "^"].includes(expression[expression.length - 2])
+      ) {
+        // check for replacing operator
+        expression = expression.slice(0, -3) + " " + value + " ";
       } else {
-        expression += value;
+        expression += " " + value + " ";
       }
     } else {
       expression += value;
@@ -39,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const value = button.getAttribute("value");
       handleButtonPress(value);
     });
-  };
+  }
 
   // keydown event listeners for keyboard input
   document.addEventListener("keydown", (event) => {
