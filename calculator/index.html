@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="queries.css" />
 
+    <script type="module" src="script.js"></script>
+    <script type="module" src="keyMap.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -29,6 +31,7 @@
             title="calculator"
             placeholder="Awaiting input..."
             class="calculator__screen"
+            readonly
           />
           <div class="calculator__buttons">
             <div class="calculator__controller-buttons">
@@ -40,8 +43,8 @@
                 <div class="calculator__button-under"></div>
               </button>
               <button
-                class="calculator__button calculator__button--yellow"
-                value="C"
+                class="calculator__button calculator__button--purple"
+                value="Backspace"
               >
                 <span class="calculator__button-text">🠔</span>
                 <div class="calculator__button-under"></div>
@@ -92,7 +95,7 @@
                 <div class="calculator__button-under"></div>
               </button>
               <button
-                class="calculator__button calculator__button--equals"
+                class="calculator__button calculator__button--equals calculator__button--blue"
                 value="="
               >
                 <span class="calculator__button-text">=</span>
@@ -114,10 +117,10 @@
               >
               <span class="calculator__button-text">)</span>
 
-                <div class="calculator__button-under">)</div>
+                <div class="calculator__button-under"></div>
               </button>
               <button
-                class="calculator__button calculator__button--operation calculator__button--plus"
+                class="calculator__button--plus calculator__button calculator__button--operation "
                 value="+"
               >
               <span class="calculator__button-text">+</span>
@@ -130,7 +133,7 @@
               >
               <span class="calculator__button-text">-</span>
 
-                <div class="calculator__button-under">-</div>
+                <div class="calculator__button-under"></div>
               </button>
               <button
                 class="calculator__button calculator__button--operation"
@@ -139,7 +142,7 @@
               <span class="calculator__button-text">^
               </span>
 
-                <div class="calculator__button-under">^</div>
+                <div class="calculator__button-under"></div>
               </button>
               <button
                 class="calculator__button calculator__button--operation"
@@ -154,7 +157,7 @@
                 value="*"
               >
               <span class="calculator__button-text">*</span>
-                <div class="calculator__button-under">*</div>
+                <div class="calculator__button-under"></div>
               </button>
             </div>
           </div>
