@@ -35,7 +35,8 @@ function count(s) {
 }
 
 export function validateAndProcessExpression(input) {
-  const s = input.split(' ');
+  const s = input.trim().split(' ');
+  console.log(input);
   let bracketCount = 0;
   let correct = true;
 
@@ -45,6 +46,15 @@ export function validateAndProcessExpression(input) {
       if (!isNaN(s[i]) && !isNaN(s[i + 1])) {
         return 'Error';
       }
+    }
+  }
+
+  // going around the unary minus by adding a zero before it!
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i][0] === '-' && (i === 0 || s[i - 1] === '(')) {
+      s[i] = '0' + s[i];
+      console.log(s);
     }
   }
 

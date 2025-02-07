@@ -6,7 +6,8 @@ const digits = "1234567890".split("");
 document.addEventListener("DOMContentLoaded", () => {
   const screen = document.querySelector(".calculator__screen");
   const buttons = document.querySelectorAll(".calculator__button");
-  let expression = "";
+  let expression = localStorage.getItem("expressionSave") || "";
+  screen.value = localStorage.getItem("expressionSave") || "";
 
   const handleButtonPress = (value) => {
     if (expression === "Error") {
@@ -19,7 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
         expression = validateAndProcessExpression(expression).toString();
       }
     } else if (value === "Backspace") {
-      expression = expression.slice(0, -1);
+      const lastThreeChars = expression.slice(-3).trim();
+      if (["+", "-", "*", "/", "^"].includes(lastThreeChars)) {
+        expression = expression.slice(0, -3);
+      } else {
+        expression = expression.slice(0, -1);
+      }
     } else if (["+", "-", "*", "/", "^"].includes(value)) {
       if (
         expression.length > 2 &&
@@ -33,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       expression += value;
     }
+    localStorage.setItem("expressionSave", expression);
     screen.value = expression;
   };
 

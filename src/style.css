@@ -80,6 +80,7 @@ html {
 }
 
 .calculator__button {
+  cursor: pointer;
   border-radius: 6px;
   border: 1px solid #000;
   width: 82px;
